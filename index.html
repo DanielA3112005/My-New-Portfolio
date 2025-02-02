@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#4F46E5",
+                        secondary: "#6D28D9",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .sidebar {
+            transition: transform 0.3s ease-in-out;
+        }
+        .sidebar-hidden {
+            transform: translateX(-100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white font-sans flex">
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar w-64 h-screen fixed left-0 top-0 bg-gray-800 shadow-lg flex flex-col items-center p-6 space-y-8 md:translate-x-0 sidebar-hidden">
+        <h1 class="text-2xl font-bold">My Portfolio</h1>
+        <nav class="flex flex-col space-y-4 text-lg">
+            <a href="#about" class="hover:text-primary" onclick="toggleSidebar()">About</a>
+            <a href="#projects" class="hover:text-primary" onclick="toggleSidebar()">Projects</a>
+            <a href="#contact" class="hover:text-primary" onclick="toggleSidebar()">Contact</a>
+        </nav>
+    </aside>
+
+    <!-- Toggle Button -->
+    <button id="menuBtn" class="fixed top-4 left-4 z-50 bg-gray-800 p-2 rounded-md md:hidden" onclick="toggleSidebar()">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+    </button>
+
+    <!-- Main Content (Pushes right due to sidebar) -->
+    <div class="md:ml-64 flex-1 p-6">
+        
+        <!-- Hero Section -->
+        <section class="h-screen flex items-center justify-center text-center">
+            <div>
+                <h2 class="text-5xl font-bold">Hi, I'm <span class="text-primary">[Your Name]</span></h2>
+                <p class="text-gray-400 mt-3 text-lg">A creative Web Developer & Designer</p>
+                <a href="#projects" class="mt-6 inline-block px-6 py-3 bg-primary rounded-lg text-white font-bold shadow-lg hover:bg-secondary transition">
+                    View My Work
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="container mx-auto py-16 text-center">
+            <h2 class="text-4xl font-bold" data-aos="fade-up">About Me</h2>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                I'm a passionate developer with experience in modern front-end technologies like Tailwind CSS, JavaScript, and Vue.js.
+            </p>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="container mx-auto py-16 text-center">
+            <h2 class="text-4xl font-bold" data-aos="fade-up">Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg" data-aos="fade-up">
+                    <h3 class="text-xl font-bold">Project 1</h3>
+                    <p class="text-gray-400">A modern, interactive website.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold">Project 2</h3>
+                    <p class="text-gray-400">A responsive web app.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <h3 class="text-xl font-bold">Project 3</h3>
+                    <p class="text-gray-400">An e-commerce platform.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container mx-auto py-16 text-center">
+            <h2 class="text-4xl font-bold" data-aos="fade-up">Contact Me</h2>
+            <p class="text-gray-400 mt-4" data-aos="fade-up" data-aos-delay="200">Let's build something amazing together.</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-center p-4 mt-6">
+            <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- AOS Animation Init -->
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            sidebar.classList.toggle("sidebar-hidden");
+        }
+    </script>
+
+</body>
+</html>
